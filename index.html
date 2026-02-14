@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -188,8 +188,8 @@
   <!-- Header -->
   <div class="header">
     <div class="lang-switch">
-      <button class="active" onclick="setLang('zh')">中文</button>
       <button onclick="setLang('en')">EN</button>
+      <button onclick="setLang('zh')">中文</button>
     </div>
     <div class="header-text">
       <h1><span class="zh">吴杰霖</span><span class="en">Jielin Wu</span></h1>
@@ -406,6 +406,7 @@ function setLang(lang) {
     btn.classList.toggle('active', btn.textContent.trim() === (lang === 'zh' ? '中文' : 'EN'));
   });
 }
+setLang('en');
 </script>
 
 </body>
