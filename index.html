@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>吴杰霖 - 简历</title>
+  <title>吴杰霖 / Jielin Wu</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -23,6 +23,41 @@
       overflow: hidden;
     }
 
+    /* ---- Language toggle ---- */
+    .lang-switch {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      gap: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.25);
+      font-size: 0.78rem;
+    }
+    .lang-switch button {
+      background: transparent;
+      color: rgba(255,255,255,.55);
+      border: none;
+      padding: 4px 12px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.78rem;
+      transition: all .2s;
+    }
+    .lang-switch button.active {
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      font-weight: 700;
+    }
+    .lang-switch button:hover:not(.active) {
+      color: rgba(255,255,255,.8);
+    }
+
+    /* ---- i18n ---- */
+    html[lang="zh"] .en { display: none; }
+    html[lang="en"] .zh { display: none; }
+
     /* ---- Header ---- */
     .header {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -32,6 +67,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 32px;
+      position: relative;
     }
     .header-text h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: 0.04em; }
     .header-text .tagline {
@@ -139,6 +175,7 @@
       .body { padding: 24px; }
       .skills-grid { grid-template-columns: 1fr; }
       .entry-head, .entry-sub { flex-direction: column; gap: 2px; }
+      .lang-switch { top: 10px; right: 10px; }
     }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,13 +187,20 @@
 
   <!-- Header -->
   <div class="header">
+    <div class="lang-switch">
+      <button class="active" onclick="setLang('zh')">中文</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
     <div class="header-text">
-      <h1>吴杰霖</h1>
-      <div class="tagline">智能制造 · 机械设计 · 机器人 · 强化学习</div>
+      <h1><span class="zh">吴杰霖</span><span class="en">Jielin Wu</span></h1>
+      <div class="tagline">
+        <span class="zh">智能制造 · 机械设计 · 机器人 · 强化学习</span>
+        <span class="en">Intelligent Manufacturing · Mechanical Design · Robotics · Reinforcement Learning</span>
+      </div>
       <div class="contact">
-        <span>📍 深圳</span>
+        <span class="zh">📍 深圳</span><span class="en">📍 Shenzhen, China</span>
         <span>📞 136-2695-1757</span>
-        <a href="mailto:12011101@mail.sustech.edu.cn">✉ 12011101@mail.sustech.edu.cn</a>
+        <a href="mailto:airjason50@gmail.com">✉ airjason50@gmail.com</a>
         <a href="https://github.com/AIRJASON50">GitHub</a>
       </div>
     </div>
@@ -167,126 +211,176 @@
 
     <!-- 教育背景 -->
     <div class="section">
-      <div class="section-title">教育背景</div>
+      <div class="section-title"><span class="zh">教育背景</span><span class="en">Education</span></div>
       <div class="entry">
         <div class="entry-head">
-          <span class="org">南方科技大学</span>
+          <span class="org"><span class="zh">南方科技大学</span><span class="en">Southern University of Science and Technology (SUSTech)</span></span>
           <span class="date">2021.09 — 2025.06</span>
         </div>
         <div class="entry-sub">
-          <span class="role">工学学士 · 智能制造与系统设计</span>
+          <span class="role"><span class="zh">工学学士 · 智能制造与系统设计</span><span class="en">B.Eng. in Intelligent Manufacturing &amp; System Design</span></span>
           <span class="location">GPA 3.4 / 4.0</span>
         </div>
       </div>
     </div>
 
-    <!-- 实习经历 -->
+    <!-- 创业经历 -->
     <div class="section">
-      <div class="section-title">实习经历</div>
+      <div class="section-title"><span class="zh">创业经历</span><span class="en">Entrepreneurship</span></div>
       <div class="entry">
         <div class="entry-head">
-          <span class="org">舞肌科技</span>
-          <span class="date">2025.10 — 至今</span>
+          <span class="org"><a class="link" href="https://www.halfmind.tech/" target="_blank"><span class="zh">半迈科技（东莞）有限公司</span><span class="en">Halfmind Technology (Dongguan) Co., Ltd.</span></a></span>
+          <span class="date"><span class="zh">2024 — 至今</span><span class="en">2024 — Present</span></span>
         </div>
         <div class="entry-sub">
-          <span class="role">算法实习生</span>
-          <span class="location">深圳</span>
+          <span class="role"><span class="zh">联合创始人 · 产品硬件负责人</span><span class="en">Co-Founder · Hardware Lead</span></span>
+          <span class="location"><span class="zh">东莞</span><span class="en">Dongguan</span></span>
         </div>
-        <ul>
+        <ul class="zh">
+          <li>作为公司合伙人主导消费电子产品从 0 到 1 的全链路硬件开发，打造 <strong>Halfmind Reminder</strong> — 一款基于 E-Ink 电子墨水屏的智能专注力设备，内置番茄钟计时器、语音输入与 MagSafe 磁吸挂载</li>
+          <li>全权负责产品工业设计、结构设计、电子方案选型与整机 BOM 成本优化，推动产品从原型验证到量产导入（DFM/NPI），实现全球发货与一年质保</li>
+          <li>构建软硬件协同生态：硬件设备与自研 Halfmind Todo App（iOS &amp; Android）无缝联动，支持多设备同步、Apple Reminders、Todoist、TickTick 等第三方平台集成</li>
+          <li>产品面向全球效率工具市场，专注 ADHD 及神经多样性用户群体的专注力管理需求，已上架独立站、App Store 与 Google Play</li>
+        </ul>
+        <ul class="en">
+          <li>Co-founded a consumer electronics startup and led end-to-end hardware development of <strong>Halfmind Reminder</strong> — a smart E-Ink focus device featuring a Pomodoro timer, on-device voice input, and MagSafe-compatible mounting</li>
+          <li>Owned full product hardware lifecycle: industrial design, mechanical engineering, electronics BOM optimization, and production ramp-up from prototype to mass manufacturing (DFM/NPI) with worldwide shipping and 1-year warranty</li>
+          <li>Architected a seamless hardware-software ecosystem: multi-device sync under one account, paired with the proprietary Halfmind Todo App (iOS &amp; Android) and integrations for Apple Reminders, Todoist, and TickTick</li>
+          <li>Product launched globally targeting the ADHD and neurodiverse community for focus management; available on the company's e-commerce site, App Store, and Google Play</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 实习经历 -->
+    <div class="section">
+      <div class="section-title"><span class="zh">实习经历</span><span class="en">Work Experience</span></div>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="org"><span class="zh">舞肌科技</span><span class="en">Wuji Tech</span></span>
+          <span class="date"><span class="zh">2025.10 — 至今</span><span class="en">2025.10 — Present</span></span>
+        </div>
+        <div class="entry-sub">
+          <span class="role"><span class="zh">算法实习生</span><span class="en">Algorithm Intern</span></span>
+          <span class="location"><span class="zh">深圳</span><span class="en">Shenzhen</span></span>
+        </div>
+        <ul class="zh">
           <li>负责灵巧手操作相关的 Sim-to-Real 强化学习（RL）研究，搭建仿真训练环境并完成策略迁移至实物灵巧手</li>
           <li>开发数据采集手套系统，用于采集人手操作示教数据，支撑模仿学习与数据驱动方法的训练流程</li>
           <li>参与灵巧操作任务的实验设计与评估，推动算法从仿真到真实场景的落地验证</li>
+        </ul>
+        <ul class="en">
+          <li>Conducting Sim-to-Real reinforcement learning research for dexterous hand manipulation; built simulation training environments and transferred learned policies to physical robotic hands</li>
+          <li>Developed a data-collection glove system to capture human hand teleoperation demonstrations, enabling imitation learning and data-driven training pipelines</li>
+          <li>Designed and evaluated dexterous manipulation experiments, driving algorithm validation from simulation to real-world deployment</li>
         </ul>
       </div>
     </div>
 
     <!-- 竞赛经历 -->
     <div class="section">
-      <div class="section-title">竞赛经历</div>
+      <div class="section-title"><span class="zh">竞赛经历</span><span class="en">Competition</span></div>
 
       <div class="entry">
         <div class="entry-head">
-          <span class="org">南科大 ARTINX 机器人实验室</span>
+          <span class="org"><span class="zh">南科大 ARTINX 机器人实验室</span><span class="en">SUSTech ARTINX Robotics Lab</span></span>
           <span class="date">2020.09 — 2023.08</span>
         </div>
 
         <div class="entry-sub">
-          <span class="role">队长 / 机械组负责人</span>
+          <span class="role"><span class="zh">队长 / 机械组负责人</span><span class="en">Team Captain / Mechanical Lead</span></span>
           <span class="location">2022.08 — 2023.08</span>
         </div>
-        <ul>
+        <ul class="zh">
           <li>在实验室重建背景下接手队伍，重新制定规章制度与管理流程</li>
           <li>负责全队项目管理与技术方向把控，协调校内外资源，获企业赞助，带领队伍再次晋级全国赛</li>
         </ul>
+        <ul class="en">
+          <li>Rebuilt the team from ground up after lab restructuring; established new regulations and management processes</li>
+          <li>Led overall project management and technical direction, secured corporate sponsorship, and guided the team back to the National Finals</li>
+        </ul>
 
         <div class="entry-sub" style="margin-top:12px;">
-          <span class="role">副队长 / 机械组负责人</span>
+          <span class="role"><span class="zh">副队长 / 机械组负责人</span><span class="en">Vice Captain / Mechanical Lead</span></span>
           <span class="location">2021.09 — 2022.08</span>
         </div>
-        <ul>
+        <ul class="zh">
           <li>管理约 20 人机械组，负责技术把关、进度管控与难点攻关</li>
           <li>引入飞书 / Notion 进行项目管理，显著提升协作效率</li>
         </ul>
+        <ul class="en">
+          <li>Managed a ~20-member mechanical division; oversaw technical reviews, milestones, and troubleshooting</li>
+          <li>Introduced Lark / Notion for project management, significantly improving team collaboration efficiency</li>
+        </ul>
         <ul class="awards">
-          <li>RoboMaster 2022 超级对抗赛全国赛三等奖、中部分区赛二等奖</li>
+          <li><span class="zh">RoboMaster 2022 超级对抗赛全国赛三等奖、中部分区赛二等奖</span><span class="en">RoboMaster 2022 — National Finals 3rd Prize, Central Regional 2nd Prize</span></li>
         </ul>
 
         <div class="entry-sub" style="margin-top:12px;">
-          <span class="role">队员 · 机械组</span>
+          <span class="role"><span class="zh">队员 · 机械组</span><span class="en">Member · Mechanical Division</span></span>
           <span class="location">2020.09 — 2021.08</span>
         </div>
-        <ul>
+        <ul class="zh">
           <li>负责上场机器人机械结构设计，完整经历需求分析、研发、制造、调试与迭代全流程</li>
         </ul>
+        <ul class="en">
+          <li>Designed mechanical structures for competition robots; experienced the full cycle of requirements, R&amp;D, manufacturing, testing, and iteration</li>
+        </ul>
         <ul class="awards">
-          <li>RoboMaster 2021 超级对抗赛全国赛一等奖、南部分区赛一等奖</li>
-          <li>RoboMaster 2021 高校联盟赛湖北站一等奖</li>
+          <li><span class="zh">RoboMaster 2021 超级对抗赛全国赛一等奖、南部分区赛一等奖</span><span class="en">RoboMaster 2021 — National Finals 1st Prize, Southern Regional 1st Prize</span></li>
+          <li><span class="zh">RoboMaster 2021 高校联盟赛湖北站一等奖</span><span class="en">RoboMaster 2021 — University League Hubei 1st Prize</span></li>
         </ul>
       </div>
     </div>
 
     <!-- 科研经历 -->
     <div class="section">
-      <div class="section-title">科研经历</div>
+      <div class="section-title"><span class="zh">科研经历</span><span class="en">Research</span></div>
 
       <div class="entry">
         <div class="entry-head">
-          <span class="org">深圳市仿生机器人与智能系统重点实验室</span>
+          <span class="org"><span class="zh">深圳市仿生机器人与智能系统重点实验室</span><span class="en">Shenzhen Key Lab of Bionic Robotics &amp; Intelligent Systems</span></span>
           <span class="date">2021.08 — 2022.01</span>
         </div>
         <div class="entry-sub">
-          <span class="role">本科科研助理 · 结构设计方向</span>
-          <span class="location">南方科技大学</span>
+          <span class="role"><span class="zh">本科科研助理 · 结构设计方向</span><span class="en">Undergraduate Research Assistant · Mechanical Design</span></span>
+          <span class="location"><span class="zh">南方科技大学</span><span class="en">SUSTech</span></span>
         </div>
-        <ul>
+        <ul class="zh">
           <li>设计"超级尾"人体运动辅助可穿戴设备及配套实验平台</li>
           <li>产出 IEEE 会议论文一篇 — <a class="link" href="https://ieeexplore.ieee.org/document/9665086" target="_blank">IEEE IRC 2021</a></li>
+        </ul>
+        <ul class="en">
+          <li>Designed a "SuperTail" wearable motion-assist device and its experimental test platform</li>
+          <li>Published one IEEE conference paper — <a class="link" href="https://ieeexplore.ieee.org/document/9665086" target="_blank">IEEE IRC 2021</a></li>
         </ul>
       </div>
 
       <div class="entry">
         <div class="entry-head">
-          <span class="org">智能传感探索与工程实验室</span>
+          <span class="org"><span class="zh">智能传感探索与工程实验室</span><span class="en">Intelligent Sensing Exploration &amp; Engineering Lab</span></span>
           <span class="date">2022.01 — 2022.08</span>
         </div>
         <div class="entry-sub">
-          <span class="role">本科科研助理 · 机构设计与实验</span>
-          <span class="location">南方科技大学</span>
+          <span class="role"><span class="zh">本科科研助理 · 机构设计与实验</span><span class="en">Undergraduate Research Assistant · Mechanism Design</span></span>
+          <span class="location"><span class="zh">南方科技大学</span><span class="en">SUSTech</span></span>
         </div>
-        <ul>
+        <ul class="zh">
           <li>参与「钢轨光带图像采集系统」项目，负责采集机构设计与实验验证</li>
+        </ul>
+        <ul class="en">
+          <li>Contributed to the "Rail Light-Band Image Acquisition System" project; designed the capture mechanism and conducted experimental validation</li>
         </ul>
       </div>
     </div>
 
     <!-- 专业技能 -->
     <div class="section">
-      <div class="section-title">专业技能</div>
+      <div class="section-title"><span class="zh">专业技能</span><span class="en">Skills</span></div>
       <div class="skills-grid">
-        <div class="skill-item"><strong>机械设计：</strong>SolidWorks / Fusion 360 / AutoCAD；钣金、CNC、3D 打印</div>
-        <div class="skill-item"><strong>机器人：</strong>强化学习（Sim2Real）、运动控制、结构设计</div>
-        <div class="skill-item"><strong>电子硬件：</strong>嵌入式基础、电机驱动与控制、传感器集成</div>
-        <div class="skill-item"><strong>项目管理：</strong>飞书 / Notion；20+ 人团队管理经验</div>
+        <div class="skill-item"><strong><span class="zh">机械设计：</span><span class="en">Mechanical Design: </span></strong><span class="zh">SolidWorks / Fusion 360 / AutoCAD；钣金、CNC、3D 打印</span><span class="en">SolidWorks / Fusion 360 / AutoCAD; Sheet Metal, CNC, 3D Printing</span></div>
+        <div class="skill-item"><strong><span class="zh">机器人：</span><span class="en">Robotics: </span></strong><span class="zh">强化学习（Sim2Real）、运动控制、结构设计</span><span class="en">Reinforcement Learning (Sim2Real), Motion Control, Structural Design</span></div>
+        <div class="skill-item"><strong><span class="zh">电子硬件：</span><span class="en">Electronics: </span></strong><span class="zh">嵌入式基础、电机驱动与控制、传感器集成</span><span class="en">Embedded Systems, Motor Drive &amp; Control, Sensor Integration</span></div>
+        <div class="skill-item"><strong><span class="zh">项目管理：</span><span class="en">Management: </span></strong><span class="zh">飞书 / Notion；20+ 人团队管理经验</span><span class="en">Lark / Notion; 20+ member team leadership</span></div>
       </div>
     </div>
 
@@ -295,6 +389,15 @@
   <div class="footer">Last updated: Feb 2026</div>
 
 </div>
+
+<script>
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim() === (lang === 'zh' ? '中文' : 'EN'));
+  });
+}
+</script>
 
 </body>
 </html>
