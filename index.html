@@ -322,16 +322,16 @@
         <span class="date"><span class="en">Shenzhen</span><span class="zh">深圳</span></span>
       </div>
       <ul class="en">
-        <li>Independently built a GPU-accelerated RL training pipeline for a 20-DOF dexterous hand using <strong>MuJoCo MJX</strong> and <strong>Brax PPO</strong>, running 8,192 parallel environments on NVIDIA GPUs; trained policies for in-hand cube reorientation and Rubik's cube solving tasks</li>
+        <li>Independently built a GPU-accelerated RL training pipeline for a multi-DOF dexterous hand using <strong>MuJoCo MJX</strong> and <strong>Brax PPO</strong>, running 8,192 parallel environments on NVIDIA GPUs, focusing on in-hand manipulation tasks</li>
         <li>Designed an asymmetric actor-critic architecture with <strong>domain randomization</strong> (friction, mass, actuator Kp/Kd) and <strong>curriculum learning</strong> to bridge the sim-to-real gap; exported trained policies to ONNX for real-time deployment on physical hardware</li>
-        <li>Developed a MANO-to-WujiHand retargeting pipeline via analytical IK, converting human hand joint data (21 joints) to robot joint angles (20 DOF), enabling demonstration-driven motion tracking</li>
-        <li>Built DexCanvas teleoperation and data-collection tools to capture human hand manipulation demonstrations, supporting imitation learning and data-driven training workflows</li>
+        <li>Developed a human-to-robot hand retargeting pipeline via analytical IK for motion tracking, enabling demonstration-driven policy training</li>
+        <li>Built teleoperation and data-collection tools to capture human hand manipulation demonstrations, supporting imitation learning and data-driven training workflows</li>
       </ul>
       <ul class="zh">
-        <li>独立搭建基于 <strong>MuJoCo MJX</strong> 与 <strong>Brax PPO</strong> 的 GPU 加速强化学习训练流水线，面向 20 自由度灵巧手，支持 8192 并行环境训练；完成方块手内重定向、魔方求解等任务的策略训练</li>
+        <li>独立搭建基于 <strong>MuJoCo MJX</strong> 与 <strong>Brax PPO</strong> 的 GPU 加速强化学习训练流水线，面向多自由度灵巧手，支持 8192 并行环境训练，聚焦手内操作任务</li>
         <li>设计非对称 Actor-Critic 架构，集成<strong>域随机化</strong>（摩擦力、质量、驱动器 Kp/Kd）与<strong>课程学习</strong>策略，弥合 Sim-to-Real 差距；将训练策略导出 ONNX 并部署至实物灵巧手</li>
-        <li>开发 MANO → WujiHand 运动重定向流水线，通过解析 IK 将人手关节数据（21 关节）映射为灵巧手关节角度（20 DOF），支撑示教驱动的运动追踪训练</li>
-        <li>搭建 DexCanvas 遥操作与数据采集工具链，采集人手操作示教数据，支持模仿学习与数据驱动训练工作流</li>
+        <li>开发人手→灵巧手运动重定向流水线，通过解析 IK 实现运动追踪，支撑示教驱动的策略训练</li>
+        <li>搭建遥操作与数据采集工具链，采集人手操作示教数据，支持模仿学习与数据驱动训练工作流</li>
       </ul>
     </div>
 
