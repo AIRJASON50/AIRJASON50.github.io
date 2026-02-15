@@ -208,7 +208,7 @@
     }
     .skills-row .label {
       font-weight: 700;
-      width: 120px;
+      width: 130px;
       flex-shrink: 0;
     }
 
@@ -322,14 +322,16 @@
         <span class="date"><span class="en">Shenzhen</span><span class="zh">深圳</span></span>
       </div>
       <ul class="en">
-        <li>Conducting Sim-to-Real reinforcement learning research for dexterous hand manipulation; built simulation training environments and transferred learned policies to physical robotic hands</li>
-        <li>Developed a data-collection glove system to capture human hand teleoperation demonstrations, enabling imitation learning and data-driven training pipelines</li>
-        <li>Designed and evaluated dexterous manipulation experiments, driving algorithm validation from simulation to real-world deployment</li>
+        <li>Independently built a GPU-accelerated RL training pipeline for a 20-DOF dexterous hand using <strong>MuJoCo MJX</strong> and <strong>Brax PPO</strong>, running 8,192 parallel environments on NVIDIA GPUs; trained policies for in-hand cube reorientation and Rubik's cube solving tasks</li>
+        <li>Designed an asymmetric actor-critic architecture with <strong>domain randomization</strong> (friction, mass, actuator Kp/Kd) and <strong>curriculum learning</strong> to bridge the sim-to-real gap; exported trained policies to ONNX for real-time deployment on physical hardware</li>
+        <li>Developed a MANO-to-WujiHand retargeting pipeline via analytical IK, converting human hand joint data (21 joints) to robot joint angles (20 DOF), enabling demonstration-driven motion tracking</li>
+        <li>Built DexCanvas teleoperation and data-collection tools to capture human hand manipulation demonstrations, supporting imitation learning and data-driven training workflows</li>
       </ul>
       <ul class="zh">
-        <li>负责灵巧手操作相关的 Sim-to-Real 强化学习（RL）研究，搭建仿真训练环境并完成策略迁移至实物灵巧手</li>
-        <li>开发数据采集手套系统，用于采集人手操作示教数据，支撑模仿学习与数据驱动方法的训练流程</li>
-        <li>参与灵巧操作任务的实验设计与评估，推动算法从仿真到真实场景的落地验证</li>
+        <li>独立搭建基于 <strong>MuJoCo MJX</strong> 与 <strong>Brax PPO</strong> 的 GPU 加速强化学习训练流水线，面向 20 自由度灵巧手，支持 8192 并行环境训练；完成方块手内重定向、魔方求解等任务的策略训练</li>
+        <li>设计非对称 Actor-Critic 架构，集成<strong>域随机化</strong>（摩擦力、质量、驱动器 Kp/Kd）与<strong>课程学习</strong>策略，弥合 Sim-to-Real 差距；将训练策略导出 ONNX 并部署至实物灵巧手</li>
+        <li>开发 MANO → WujiHand 运动重定向流水线，通过解析 IK 将人手关节数据（21 关节）映射为灵巧手关节角度（20 DOF），支撑示教驱动的运动追踪训练</li>
+        <li>搭建 DexCanvas 遥操作与数据采集工具链，采集人手操作示教数据，支持模仿学习与数据驱动训练工作流</li>
       </ul>
     </div>
 
@@ -456,12 +458,16 @@
   <div class="section">
     <h3 class="section-title"><span class="en">Skills</span><span class="zh">专业技能</span></h3>
     <div class="skills-row">
-      <span class="label"><span class="en">Mechanical:</span><span class="zh">机械设计：</span></span>
-      <span><span class="en">SolidWorks / Fusion 360 / AutoCAD; Sheet Metal, CNC, 3D Printing</span><span class="zh">SolidWorks / Fusion 360 / AutoCAD；钣金、CNC、3D 打印</span></span>
+      <span class="label"><span class="en">RL / Sim2Real:</span><span class="zh">RL / Sim2Real：</span></span>
+      <span><span class="en">MuJoCo MJX, Brax PPO, MuJoCo Playground, Isaac Sim; Domain Randomization, Curriculum Learning, Reward Shaping, System Identification</span><span class="zh">MuJoCo MJX、Brax PPO、MuJoCo Playground、Isaac Sim；域随机化、课程学习、奖励设计、系统辨识</span></span>
     </div>
     <div class="skills-row">
-      <span class="label"><span class="en">Robotics:</span><span class="zh">机器人：</span></span>
-      <span><span class="en">Reinforcement Learning (Sim2Real), Motion Control, Structural Design</span><span class="zh">强化学习（Sim2Real）、运动控制、结构设计</span></span>
+      <span class="label"><span class="en">Programming:</span><span class="zh">编程语言：</span></span>
+      <span><span class="en">Python, JAX, NumPy; ONNX; Linux, Git, WandB</span><span class="zh">Python、JAX、NumPy；ONNX；Linux、Git、WandB</span></span>
+    </div>
+    <div class="skills-row">
+      <span class="label"><span class="en">Mechanical:</span><span class="zh">机械设计：</span></span>
+      <span><span class="en">SolidWorks / Fusion 360 / AutoCAD; Sheet Metal, CNC, 3D Printing; URDF / MJCF Modeling</span><span class="zh">SolidWorks / Fusion 360 / AutoCAD；钣金、CNC、3D 打印；URDF / MJCF 建模</span></span>
     </div>
     <div class="skills-row">
       <span class="label"><span class="en">Electronics:</span><span class="zh">电子硬件：</span></span>
