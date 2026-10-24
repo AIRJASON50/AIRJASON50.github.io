@@ -141,6 +141,14 @@
     }
     .entry ul li::before { content: "· "; font-weight: 700; color: var(--accent); }
 
+    /* Publications */
+    .publications .section-title { break-after: avoid; }
+    .publication-authors, .publication-venue, .publication-note, .publication-links { font-size: 12px; line-height: 1.4; margin-top: 3px; }
+    .publication-authors { color: var(--text-secondary); }
+    .publication-note, .publication-links { font-size: 11px; color: var(--text-tertiary); }
+    .publication-venue a, .publication-note a, .publication-links a { color: var(--accent); text-decoration: none; }
+    .publication-venue a:hover, .publication-note a:hover, .publication-links a:hover { text-decoration: underline; }
+
     /* Awards */
     .awards {
       margin: 2px 0 4px 0; padding: 0; list-style: none;
@@ -188,8 +196,8 @@
     <h1><span class="en">Jielin Wu</span><span class="zh">吴杰霖</span></h1>
     <div class="name-accent"></div>
     <div class="title">
-      <span class="en">Robot Learning · Dexterous Manipulation · Haptic Teleoperation</span>
-      <span class="zh">机器人学习 · 灵巧操作 · 力反馈遥操作</span>
+      <span class="en">Robot Learning · Dexterous Manipulation · Sim-to-Real</span>
+      <span class="zh">机器人学习 · 灵巧操作 · 仿真到实物迁移</span>
     </div>
     <div class="contact">
       <a href="mailto:airjason50@gmail.com">airjason50@gmail.com</a>
@@ -268,18 +276,40 @@
     <!-- MAIN -->
     <div class="main">
 
+      <!-- Publications -->
+      <div class="section publications" id="publications">
+        <h3 class="section-title"><span class="en">Publications</span><span class="zh">论文发表</span></h3>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><a href="https://toporetarget2026.github.io/TopoRetarget/">TopoRetarget: Interaction-Preserving Retargeting for Dexterous Manipulation</a></span>
+            <span class="date">2026</span>
+          </div>
+          <p class="publication-authors"><strong>Jielin Wu*</strong>, Shenzhe Yao*, Guanqi He*, Xiaohan Liu*, Zhaoqing Zeng, Xiangrui Jiang, Han Yang, Wentao Zhang, Hang Zhao</p>
+          <p class="publication-venue"><a href="https://openreview.net/forum?id=9w3PEC3XLg"><strong>CoRL 2026</strong></a> · <span class="en">Poster</span><span class="zh">海报论文</span></p>
+          <p class="publication-note"><span class="en">Also accepted at two RSS 2026 workshops: <a href="https://dex-manipulation.github.io/rss2026/">Dexterous Manipulation</a>; <a href="https://sites.google.com/view/rss2026sim2realws/home">Closing the Sim2Real Gap</a>.</span><span class="zh">亦被 RSS 2026 两个研讨会录用：<a href="https://dex-manipulation.github.io/rss2026/">灵巧操作</a>；<a href="https://sites.google.com/view/rss2026sim2realws/home">缩小仿真到现实差距</a>。</span></p>
+          <p class="publication-links"><a href="https://toporetarget2026.github.io/TopoRetarget/"><span class="en">Project</span><span class="zh">项目主页</span></a> · <a href="https://arxiv.org/pdf/2606.16272">PDF</a> · <a href="https://github.com/wuji-technology/toporetarget"><span class="en">Code</span><span class="zh">代码</span></a> · <span class="en">* Equal contribution</span><span class="zh">* 共同贡献</span></p>
+        </div>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><a href="https://ieeexplore.ieee.org/document/9665086">Powered Super Tail: A Terrain-Adaptive Wheel-legged Robotic Limb to Assist Human’s Load Carriage</a></span>
+            <span class="date">2021</span>
+          </div>
+          <p class="publication-authors">Yanzhen Xiang, Xiaoyu Yan, Hanqi Su, Nuo Chen, Shangkun Guo, <strong>Jielin Wu</strong>, Yuquan Leng, Chenglong Fu</p>
+          <p class="publication-venue"><strong>IEEE M2VIP 2021</strong> · 676–681</p>
+          <p class="publication-links"><a href="https://ieeexplore.ieee.org/document/9665086"><span class="en">Paper</span><span class="zh">论文</span></a> · <a href="https://doi.org/10.1109/M2VIP49856.2021.9665086">DOI</a></p>
+        </div>
+      </div>
+
       <!-- Research Interests -->
       <div class="section">
         <h3 class="section-title"><span class="en">Research Interests</span><span class="zh">科研方向</span></h3>
         <ul class="en">
           <li>Human demonstration learning, interaction-preserving motion retargeting, and robot foundation models for generalizable dexterous manipulation</li>
           <li>Reinforcement learning and sim-to-real transfer, spanning simulation environment construction, policy training, and real-world deployment</li>
-          <li>Force-feedback teleoperation and scalable demonstration collection: glove mechanisms, PCB, STM32 firmware, and MuJoCo-based real-time inverse kinematics and collision force feedback</li>
         </ul>
         <ul class="zh">
           <li>从人类示教中学习灵巧操作：交互保持的运动重定向、模仿学习，以及面向可泛化操作策略的机器人基础模型</li>
           <li>强化学习与仿真到实物迁移：仿真环境构建、策略训练与实物部署</li>
-          <li>力反馈遥操作与规模化示教数据采集：触觉手套机构、电路、STM32 固件，以及基于 MuJoCo 的实时逆运动学与碰撞力反馈控制</li>
         </ul>
       </div>
 
@@ -347,6 +377,20 @@
           </div>
           <ul class="en"><li>Designed the image-capture mechanism for the "Rail Light-Band Acquisition System"; conducted experimental validation</li></ul>
           <ul class="zh"><li>负责「钢轨光带图像采集系统」采集机构设计与实验验证</li></ul>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="section" id="projects">
+        <h3 class="section-title"><span class="en">Selected Projects</span><span class="zh">项目经历</span></h3>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><span class="en">Force-feedback Haptic Glove</span><span class="zh">力反馈触觉手套</span></span>
+          </div>
+          <div class="entry-sub"><span class="en">Haptic Teleoperation &amp; Demonstration Collection</span><span class="zh">力反馈遥操作与示教数据采集</span></div>
+          <ul class="en"><li>Built a haptic glove system spanning mechanism design, PCB, and STM32 firmware</li><li>Implemented real-time inverse kinematics and collision force feedback in MuJoCo to support teleoperation and demonstration collection</li></ul>
+          <ul class="zh"><li>完成力反馈手套系统的机构设计、电路设计与 STM32 固件开发</li><li>基于 MuJoCo 实现实时逆运动学与碰撞力反馈，支持遥操作与示教数据采集</li></ul>
+          <div class="entry-sub"><a href="haptic-glove.gif"><span class="en">View demonstration</span><span class="zh">查看项目演示</span></a></div>
         </div>
       </div>
 
