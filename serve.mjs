@@ -13,6 +13,7 @@ const contentTypes = {
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
   '.jpg': 'image/jpeg',
+  '.gif': 'image/gif',
 };
 
 createServer(async (request, response) => {
