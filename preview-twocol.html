@@ -141,6 +141,14 @@
     }
     .entry ul li::before { content: "· "; font-weight: 700; color: var(--accent); }
 
+    /* Publications */
+    .publications .section-title { break-after: avoid; }
+    .publication-authors, .publication-venue, .publication-note, .publication-links { font-size: 12px; line-height: 1.4; margin-top: 3px; }
+    .publication-authors { color: var(--text-secondary); }
+    .publication-note, .publication-links { font-size: 11px; color: var(--text-tertiary); }
+    .publication-venue a, .publication-note a, .publication-links a { color: var(--accent); text-decoration: none; }
+    .publication-venue a:hover, .publication-note a:hover, .publication-links a:hover { text-decoration: underline; }
+
     /* Awards */
     .awards {
       margin: 2px 0 4px 0; padding: 0; list-style: none;
@@ -267,6 +275,30 @@
 
     <!-- MAIN -->
     <div class="main">
+
+      <!-- Publications -->
+      <div class="section publications" id="publications">
+        <h3 class="section-title"><span class="en">Publications</span><span class="zh">论文发表</span></h3>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><a href="https://toporetarget2026.github.io/TopoRetarget/">TopoRetarget: Interaction-Preserving Retargeting for Dexterous Manipulation</a></span>
+            <span class="date">2026</span>
+          </div>
+          <p class="publication-authors"><strong>Jielin Wu*</strong>, Shenzhe Yao*, Guanqi He*, Xiaohan Liu*, Zhaoqing Zeng, Xiangrui Jiang, Han Yang, Wentao Zhang, Hang Zhao</p>
+          <p class="publication-venue"><a href="https://openreview.net/forum?id=9w3PEC3XLg"><strong>CoRL 2026</strong></a> · <span class="en">Poster</span><span class="zh">海报论文</span></p>
+          <p class="publication-note"><span class="en">Also accepted at two RSS 2026 workshops: <a href="https://dex-manipulation.github.io/rss2026/">Dexterous Manipulation</a>; <a href="https://sites.google.com/view/rss2026sim2realws/home">Closing the Sim2Real Gap</a>.</span><span class="zh">亦被 RSS 2026 两个研讨会录用：<a href="https://dex-manipulation.github.io/rss2026/">灵巧操作</a>；<a href="https://sites.google.com/view/rss2026sim2realws/home">缩小仿真到现实差距</a>。</span></p>
+          <p class="publication-links"><a href="https://toporetarget2026.github.io/TopoRetarget/"><span class="en">Project</span><span class="zh">项目主页</span></a> · <a href="https://arxiv.org/pdf/2606.16272">PDF</a> · <a href="https://github.com/wuji-technology/toporetarget"><span class="en">Code</span><span class="zh">代码</span></a> · <span class="en">* Equal contribution</span><span class="zh">* 共同贡献</span></p>
+        </div>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><a href="https://ieeexplore.ieee.org/document/9665086">Powered Super Tail: A Terrain-Adaptive Wheel-legged Robotic Limb to Assist Human’s Load Carriage</a></span>
+            <span class="date">2021</span>
+          </div>
+          <p class="publication-authors">Yanzhen Xiang, Xiaoyu Yan, Hanqi Su, Nuo Chen, Shangkun Guo, <strong>Jielin Wu</strong>, Yuquan Leng, Chenglong Fu</p>
+          <p class="publication-venue"><strong>IEEE M2VIP 2021</strong> · 676–681</p>
+          <p class="publication-links"><a href="https://ieeexplore.ieee.org/document/9665086"><span class="en">Paper</span><span class="zh">论文</span></a> · <a href="https://doi.org/10.1109/M2VIP49856.2021.9665086">DOI</a></p>
+        </div>
+      </div>
 
       <!-- Research Interests -->
       <div class="section">
