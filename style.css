@@ -65,10 +65,10 @@ a.section-note { color: var(--link); }
 .publication p.authors { font-size: 13px; color: #68717c; }
 .authors strong { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .venue { color: #5e6975; font-style: italic; }
+.publication p.workshop-venues { color: var(--muted); font-size: 12px; }
 .resource-links { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 11px; font-size: 11px; }
 .resource-links a { padding: 1px 12px; border: 1px solid #bcc8d2; border-radius: 2px; line-height: 1.9; }
 .resource-links a:hover { background: #f5f8fa; text-decoration: none; }
-.resource-pending { color: #6c747d; font-size: 11px; margin-left: 3px; }
 .publication-text { border-top: 1px solid var(--line); padding-top: 24px; }
 .publication-label { align-self: start; min-height: 105px; background: #f6f7f8; color: #7a8590; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 18px; letter-spacing: 1px; }
 .publication-label span:last-child { font-size: 12px; letter-spacing: 2px; }

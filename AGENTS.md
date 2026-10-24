@@ -14,7 +14,10 @@ This is a buildless static website using HTML(超文本标记语言), CSS(层叠
 ## Editing
 Keep English and Chinese content in sync. Use the en and zh classes; home.js changes the document language.
 The portrait-placeholder element is intentionally empty. Replace it with an image only when the user supplies a portrait; retain useful alternative text and responsive sizing.
-TopoRetarget authorship was confirmed by the user. Title, author order, year, and summary were checked against https://arxiv.org/abs/2606.16272 and the project website. The public project has no released method-code link; do not label its website repository as method code.
+TopoRetarget authorship was confirmed by the user. Title, author order, year, and summary were checked against https://arxiv.org/abs/2606.16272. The current project website is https://toporetarget2026.github.io/TopoRetarget/; the older Tsinghua MARS Lab mirror has stale venue and code information.
+As of 2026-10-24, the official public method-code repository is https://github.com/wuji-technology/toporetarget, created and pushed on 2026-10-23. Keep the Code button linked there, rather than to the project website source repository or an unofficial reproduction.
+CoRL 2026 Poster acceptance is recorded at https://openreview.net/forum?id=9w3PEC3XLg and https://api2.openreview.net/notes/search?term=TopoRetarget&limit=100. The accepted submission uses an earlier Interaction-centric title; retain the current project website's Interaction-Preserving title in the homepage.
+The RSS 2026 Dexterous Manipulation workshop lists TopoRetarget among accepted papers at https://dex-manipulation.github.io/rss2026/ and https://openreview.net/forum?id=j7jMQUjRsD. Other RSS workshop names are awaiting clarification from the user; do not infer a venue, award, or spotlight from a different paper's record.
 Keep assets local and links relative to the HTML document for GitHub Pages portability. The homepage uses no remote fonts or runtime dependencies.
 ## Local Preview and Validation
 Use node /home/l/ws/RL/AIRJASON50.github.io/serve.mjs to start the static HTTP(超文本传输协议) server at http://127.0.0.1:4173. An optional port is the first argument. The command works from any directory. No build step is needed. The site also works as local files.
