@@ -448,6 +448,11 @@
 function setLang(lang) {
   lang = lang === 'zh' ? 'zh' : 'en';
   document.documentElement.lang = lang;
+  try {
+    const url = new URL(location.href);
+    url.searchParams.set('lang', lang);
+    history.replaceState(null, '', url);
+  } catch { /* History access is optional. */ }
   document.getElementById('home-link').href = 'index.html?lang=' + lang;
   document.querySelectorAll('.lang-switch button').forEach(btn => {
     const active = btn.textContent.trim() === (lang === 'zh' ? '中文' : 'EN');

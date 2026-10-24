@@ -24,5 +24,14 @@ if (preferredLanguage !== 'en' && preferredLanguage !== 'zh') {
 }
 setLanguage(preferredLanguage);
 document.querySelectorAll('[data-lang]').forEach((button) => {
-  button.addEventListener('click', () => setLanguage(button.dataset.lang));
+  button.addEventListener('click', () => {
+    setLanguage(button.dataset.lang);
+    try {
+      const url = new URL(location.href);
+      url.searchParams.set('lang', document.documentElement.lang);
+      history.replaceState(null, '', url);
+    } catch {
+      // Language switching also works without history access.
+    }
+  });
 });

@@ -15,7 +15,8 @@ This is a buildless static website using HTML(超文本标记语言), CSS(层叠
 - preview-modern.html and preview-twocol.html: pre-existing alternative CV layouts; retained unchanged.
 ## Editing
 Keep English and Chinese content in sync. Use the en and zh classes; home.js changes the document language.
-Keep the user-supplied portrait unchanged as a file. Its presentation uses the portrait class, a 3:4 aspect ratio, descriptive alternative text, and responsive widths.
+Language buttons keep the URL language parameter, selected state, local preference, and homepage/CV links consistent. Verify a language change survives reloading each page.
+Keep the user-supplied portrait unchanged as a file. Its presentation uses a responsive portrait-frame with a 3:4 aspect ratio. The portrait is enlarged 1.6 times around 54% 69% to center the face and upper body while reducing the empty ceiling. Retain descriptive alternative text and check this crop at desktop and mobile widths.
 TopoRetarget authorship was confirmed by the user. Title, author order, year, and summary were checked against https://arxiv.org/abs/2606.16272. The current project website is https://toporetarget2026.github.io/TopoRetarget/; the older Tsinghua MARS Lab mirror has stale venue and code information.
 As of 2026-10-24, the official public method-code repository is https://github.com/wuji-technology/toporetarget, created and pushed on 2026-10-23. Keep the Code button linked there, rather than to the project website source repository or an unofficial reproduction.
 CoRL 2026 Poster acceptance is recorded at https://openreview.net/forum?id=9w3PEC3XLg and https://api2.openreview.net/notes/search?term=TopoRetarget&limit=100. The accepted submission uses an earlier Interaction-centric title; retain the current project website's Interaction-Preserving title in the homepage.
