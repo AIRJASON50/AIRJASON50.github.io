@@ -7,15 +7,17 @@ This is a buildless static website using HTML(超文本标记语言), CSS(层叠
 - style.css: homepage presentation, responsive layouts, focus states, and print styles.
 - home.js: homepage language switching and language-preserving CV(履历) links. English is the default; preference is stored locally when browser storage is available.
 - serve.mjs: dependency-free local preview server, anchored to its own directory and bound to loopback only.
-- cv.html: the original index.html preserved as the full bilingual CV, with added home navigation and print controls. Keep all original CV content when editing the homepage.
+- cv.html: full bilingual CV derived from the original index.html, with home navigation and print controls. On 2026-10-24 the user requested research-focused content updates, including the MARS Lab role and removal of the Wuji internship identity.
 - toporetarget.jpg: preview image from the confirmed author's public project repository, https://raw.githubusercontent.com/Tsinghua-MARS-Lab/toporetarget-web/main/static/videos/posters/hero.jpg.
 - portrait.jpg: original user-supplied portrait, added on 2026-10-24; used in the homepage introduction.
 - super-tail.gif: unchanged Figure 1 from the Powered Super Tail paper; shows the worn system and its kinematic scheme. Exported from the user's authenticated IEEE page on 2026-10-24. Source: https://ieeexplore.ieee.org/mediastore/IEEE/content/media/9664973/9664984/9665086/xiang1-p6-xiang-large.gif.
 - halfmind-reminder.webp: original white-background product image from the user's company website, exported on 2026-10-24. Source: https://www.halfmind.tech/cdn/shop/files/258.jpg?v=1755949852&width=360. The publisher returns WebP despite the source URL's .jpg extension; the local filename follows the actual format.
 - photo.jpg: pre-existing image; retained and not used on the new homepage.
-- preview-modern.html and preview-twocol.html: pre-existing alternative CV layouts; retained unchanged.
+- preview-modern.html and preview-twocol.html: pre-existing alternative CV layouts; keep affiliation and research content consistent with cv.html while retaining their layouts.
 ## Editing
 Keep English and Chinese content in sync. Use the en and zh classes; home.js changes the document language.
+As confirmed by the user on 2026-10-24, Jielin Wu has been a Research Assistant in Prof. Hang Zhao's group at MARS Lab, Tsinghua University, since May 2026. Retain the concurrent SUSTech master's degree and Prof. Max Q.-H. Meng as the graduate advisor; the RA role is not a Tsinghua degree. Official links: https://group.iiis.tsinghua.edu.cn/~marslab/ and https://hangzhaomit.github.io/. The lab's IIIS affiliation and supervisor are confirmed by https://iiis.tsinghua.edu.cn/en/People/Faculty/ZhaoHang.htm.
+The user requested hiding the Wuji internship identity in the homepage and all CV versions. Remove the employment role, affiliation references, and internship news. Preserve the research substance as interests in dexterous manipulation, robot foundation models, reinforcement learning, sim-to-real transfer, and force-feedback teleoperation. Keep factual robot names and official paper/code links. Do not attribute all previously listed engineering work to MARS Lab.
 Language buttons keep the URL language parameter, selected state, local preference, and homepage/CV links consistent. Verify a language change survives reloading each page.
 Keep the user-supplied portrait unchanged as a file. Its presentation uses a responsive portrait-frame with a 3:4 aspect ratio. The portrait is enlarged 1.6 times around 54% 69% to center the face and upper body while reducing the empty ceiling. Retain descriptive alternative text and check this crop at desktop and mobile widths.
 TopoRetarget authorship was confirmed by the user. Title, author order, year, and summary were checked against https://arxiv.org/abs/2606.16272. The current project website is https://toporetarget2026.github.io/TopoRetarget/; the older Tsinghua MARS Lab mirror has stale venue and code information.
@@ -24,13 +26,13 @@ CoRL 2026 Poster acceptance is recorded at https://openreview.net/forum?id=9w3PE
 The RSS 2026 Dexterous Manipulation workshop lists TopoRetarget among accepted papers at https://dex-manipulation.github.io/rss2026/ and https://openreview.net/forum?id=j7jMQUjRsD.
 On 2026-10-24, the user confirmed exactly two RSS 2026 workshop acceptances: Dexterous Manipulation and Closing the Sim2Real Gap: Progress and Challenges. The latter's title and URL, https://sites.google.com/view/rss2026sim2realws/home, match the official conference workshop directory at https://roboticsconference.org/2026/program/workshops/. Do not infer an award or spotlight from acceptance or from a different paper's record.
 Keep assets local and links relative to the HTML document for GitHub Pages portability. The homepage uses no remote fonts or runtime dependencies.
-Powered Super Tail was published at IEEE M2VIP 2021, as verified on its IEEE document page and https://www.harlab.site/737.html. The original CV's IRC label was inaccurate; the homepage uses M2VIP. Preserve the original CV content unless the user requests CV edits.
+Powered Super Tail was published at IEEE M2VIP 2021, as verified on its IEEE document page and https://www.harlab.site/737.html. Use M2VIP in the homepage and all CV versions; the original IRC label was inaccurate.
 The user requested a Powered Super Tail preview figure and provided authenticated publisher access on 2026-10-24. The homepage uses the original Figure 1 locally; keep its aspect ratio and link it to the paper. Do not substitute an image from a different paper or robot.
 The Halfmind project includes a product thumbnail linked to https://www.halfmind.tech/products/halfmind-sticker. Keep the original image intact; the desktop layout places it beside the description and the mobile layout places it below the description.
 ## Local Preview and Validation
 Use node /home/l/ws/RL/AIRJASON50.github.io/serve.mjs to start the static HTTP(超文本传输协议) server at http://127.0.0.1:4173. An optional port is the first argument. The command works from any directory. No build step is needed. The site also works as local files.
 Check desktop and mobile widths, both language buttons, section navigation, the CV link, the CV home link, and print styles. Ensure local images load and there is no horizontal overflow at 320px.
-Verify the original resume element in cv.html against the original index.html at base commit 12fdd29 before claiming the CV content is preserved.
+Check changes against the previous revision: preserve unrelated education, skills, honors, engineering, entrepreneurship, and competition content. The original CV is recoverable from index.html at 12fdd29; it is no longer the current content baseline after the user-requested affiliation edits.
 Validate JavaScript with node --check and inspect git diff --check. Do not add tests that merely mirror static markup.
 ## Publication
 Work branch: codex/personal-homepage. Remote pushes require explicit user approval under the workspace rules. Local preview work does not authorize publication.
