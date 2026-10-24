@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV · Jielin Wu / 吴杰霖</title>
+  <style>
+    :root {
+      --accent: #1e3a5f;
+      --accent-light: #e8eef5;
+      --text-primary: #111;
+      --text-body: #333;
+      --text-secondary: #444;
+      --text-tertiary: #666;
+      --font-header: 'Palatino Linotype', Palatino, Georgia, serif;
+      --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      --font-size: 13px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--font-size);
+      line-height: 1.4;
+      color: var(--text-body);
+      background: #e5e7eb;
+    }
+
+    html[lang="zh"] .en { display: none; }
+    html[lang="en"] .zh { display: none; }
+
+    .resume {
+      max-width: 860px;
+      margin: 32px auto;
+      background: #fff;
+      padding: 28px 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.1);
+    }
+
+    /* Lang switch */
+    .lang-switch {
+      position: fixed; top: 12px; right: 16px;
+      display: flex; border-radius: 4px; overflow: hidden;
+      border: 1px solid #ccc; font-size: 11px; z-index: 10; background: #fff;
+    }
+    .lang-switch button {
+      background: transparent; border: none; padding: 3px 12px;
+      cursor: pointer; font-family: var(--font-mono); font-size: 11px;
+      color: #999; transition: all .2s;
+    }
+    .lang-switch button.active {
+      background: var(--accent); color: #fff; font-weight: 700;
+    }
+
+    .cv-tools {
+      max-width: 860px; margin: 48px auto -18px; padding: 0 4px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px;
+    }
+    .cv-tools a { color: var(--accent); text-decoration: none; }
+    .cv-tools a:hover { text-decoration: underline; }
+    .cv-tools button {
+      font: inherit; color: var(--accent); background: #fff;
+      border: 1px solid #c6ced8; border-radius: 3px; padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    /* Header - full width */
+    .header {
+      text-align: left;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--accent);
+    }
+    .header h1 {
+      font-family: var(--font-header);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .header .title {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+    .header .contact {
+      font-size: 11.5px;
+      color: var(--text-tertiary);
+      margin-top: 6px;
+      display: flex; flex-wrap: wrap; gap: 2px 6px;
+    }
+    .header .contact a { color: var(--accent); text-decoration: none; }
+    .header .contact a:hover { text-decoration: underline; }
+    .header .contact .sep { color: #ccc; }
+    .name-accent { display: none; }
+
+    /* Two-column layout */
+    .two-col {
+      display: flex;
+      gap: 28px;
+    }
+    .sidebar {
+      width: 30%;
+      flex-shrink: 0;
+      border-right: 1px solid #e5e7eb;
+      padding-right: 20px;
+    }
+    .main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Section */
+    .section { margin-bottom: 14px; }
+    .section:last-child { margin-bottom: 0; }
+    .section-title {
+      font-family: var(--font-header);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+    }
+
+    /* Entry */
+    .entry { margin-bottom: 8px; break-inside: avoid; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 1px;
+    }
+    .entry-title { font-weight: 700; color: var(--text-primary); font-size: 13px; }
+    .entry-title a { color: var(--text-primary); text-decoration: none; }
+    .entry-title a:hover { text-decoration: underline; }
+    .entry-sub { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+    .date {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--text-tertiary); white-space: nowrap; flex-shrink: 0; margin-left: 8px;
+    }
+    .entry ul {
+      margin: 2px 0 4px 8px; padding: 0; list-style: none;
+    }
+    .entry ul li {
+      font-size: 12px; margin-bottom: 3px;
+      padding-left: 8px; text-indent: -8px;
+    }
+    .entry ul li::before { content: "· "; font-weight: 700; color: var(--accent); }
+
+    /* Awards */
+    .awards {
+      margin: 2px 0 4px 0; padding: 0; list-style: none;
+      font-size: 11.5px; color: var(--text-tertiary);
+    }
+    .awards li { margin-bottom: 3px; padding-left: 8px; text-indent: -8px; }
+    .awards li::before { content: "› "; color: var(--accent); font-weight: 700; }
+    .awards li a { color: var(--accent); }
+
+    /* Skills */
+    .skills-row { font-size: 12px; margin-bottom: 4px; }
+    .skills-row .label { font-weight: 700; display: block; color: var(--text-primary); margin-bottom: 1px; }
+
+    /* Sidebar adjustments */
+    .sidebar .entry-row { flex-direction: column; gap: 0; }
+    .sidebar .date { margin-left: 0; font-size: 10px; }
+    .sidebar .entry ul li { font-size: 11.5px; }
+
+    @media print {
+      body { background: none; }
+      .resume { margin: 0; box-shadow: none; padding: 20px; }
+      .lang-switch, .cv-tools { display: none; }
+    }
+    @media (max-width: 640px) {
+      .cv-tools { margin: 48px 16px 16px; padding: 0; }
+      .two-col { flex-direction: column; }
+      .sidebar { width: 100%; border-right: none; padding-right: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 14px; margin-bottom: 14px; }
+      .resume { margin: 0; padding: 16px; }
+      .entry-row { flex-direction: column; gap: 1px; }
+      .date { margin-left: 0; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="lang-switch">
+  <button onclick="setLang('en')" aria-pressed="true">EN</button>
+  <button onclick="setLang('zh')" aria-pressed="false">中文</button>
+</div>
+
+<nav class="cv-tools" aria-label="CV navigation">
+  <a href="index.html" id="home-link"><span class="en">← Back to homepage</span><span class="zh">← 返回主页</span></a>
+  <button type="button" onclick="window.print()"><span class="en">Print / Save PDF</span><span class="zh">打印 / 保存 PDF</span></button>
+</nav>
+
+<div class="resume">
+
+  <header class="header">
+    <h1><span class="en">Jielin Wu</span><span class="zh">吴杰霖</span></h1>
+    <div class="name-accent"></div>
+    <div class="title">
+      <span class="en">Intelligent Manufacturing · Mechanical Design · Robotics · Reinforcement Learning</span>
+      <span class="zh">智能制造 · 机械设计 · 机器人 · 强化学习</span>
+    </div>
+    <div class="contact">
+      <a href="mailto:airjason50@gmail.com">airjason50@gmail.com</a>
+      <span class="sep">|</span>
+      <span>136-2695-1757</span>
+      <span class="sep">|</span>
+      <span class="en">Shenzhen, China</span><span class="zh">深圳</span>
+      <span class="sep">|</span>
+      <a href="https://github.com/AIRJASON50">github.com/AIRJASON50</a>
+    </div>
+  </header>
+
+  <div class="two-col">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- Education -->
+      <div class="section">
+        <h3 class="section-title"><span class="en">Education</span><span class="zh">教育背景</span></h3>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><span class="en">Southern University of Science and Technology</span><span class="zh">南方科技大学</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="date"><span class="en">2024.09 — 2027.06 (Expected)</span><span class="zh">2024.09 — 2027.06（预计）</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">M.Sc. Electronic Science &amp; Technology</span><span class="zh">硕士 · 电子科学与技术</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Advisor: Prof. Max Q.-H. Meng</span><span class="zh">导师：孟庆虎 教授</span></span>
+          </div>
+          <ul class="en"><li>Teleoperation &amp; RL-based dexterous manipulation</li></ul>
+          <ul class="zh"><li>灵巧手遥操作与基于强化学习的灵巧操作</li></ul>
+        </div>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><span class="en">Southern University of Science and Technology</span><span class="zh">南方科技大学</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="date">2020.09 — 2024.06</span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">B.Eng. Intelligent Manufacturing &amp; System Design</span><span class="zh">工学学士 · 智能制造与系统设计</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="section">
+        <h3 class="section-title"><span class="en">Skills</span><span class="zh">专业技能</span></h3>
+        <div class="skills-row">
+          <span class="label"><span class="en">Mechanical</span><span class="zh">机械设计</span></span>
+          <span><span class="en">SolidWorks / Fusion 360 / AutoCAD; Mold Design &amp; DFM, Sheet Metal, CNC Machining; URDF / MJCF Modeling</span><span class="zh">SolidWorks / Fusion 360 / AutoCAD；模具设计与 DFM、钣金、CNC 加工；URDF / MJCF 建模</span></span>
+        </div>
+        <div class="skills-row">
+          <span class="label"><span class="en">Electronics</span><span class="zh">电子硬件</span></span>
+          <span><span class="en">Embedded Systems, Motor Drive &amp; Control, Sensor Integration</span><span class="zh">嵌入式系统、电机驱动与控制、传感器集成</span></span>
+        </div>
+        <div class="skills-row">
+          <span class="label"><span class="en">Robotics &amp; Software</span><span class="zh">机器人与软件</span></span>
+          <span><span class="en">C++ / Python; ROS, MuJoCo, Gazebo, Isaac Lab; Impedance Control, Hybrid Force-Position Control, Sim-to-Real</span><span class="zh">C++ / Python；ROS、MuJoCo、Gazebo、Isaac Lab；阻抗控制、力位混合控制、Sim-to-Real</span></span>
+        </div>
+      </div>
+
+      <!-- Honors & Awards -->
+      <div class="section">
+        <h3 class="section-title"><span class="en">Honors &amp; Awards</span><span class="zh">荣誉与获奖</span></h3>
+        <ul class="awards">
+          <li><span class="en">RoboMaster 2023 — <a href="https://www.robomaster.com/zh-CN/resource/pages/announcement/1651" target="_blank">Outstanding Captain Award</a> (national)</span><span class="zh">RoboMaster 2023 — <a href="https://www.robomaster.com/zh-CN/resource/pages/announcement/1651" target="_blank">优秀队长</a>（全国个人奖项）</span></li>
+          <li><span class="en">RoboMaster 2021–2023 — National 1st Prize ×2, 3rd ×1; Regional 1st ×2, 2nd ×1; League ×4</span><span class="zh">RoboMaster 2021–2023 — 国家级一等奖 2 项、三等奖 1 项；省级一等奖 2 项、二等奖 1 项、三等奖 4 项</span></li>
+          <li><span class="en">Outstanding Graduate, Southern University of Science and Technology, 2024</span><span class="zh">南方科技大学 2024 届优秀毕业生</span></li>
+          <li><span class="en">Patent CN116870450A — Tennis Ball Launcher</span><span class="zh">发明专利 CN116870450A —「网球发射机」</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- Research -->
+      <div class="section">
+        <h3 class="section-title"><span class="en">Research</span><span class="zh">科研经历</span></h3>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><span class="en">Dexterous Manipulation Research</span><span class="zh">灵巧操作研究</span></span>
+            <span class="date"><span class="en">2024.09 — Present</span><span class="zh">2024.09 — 至今</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Graduate Researcher · Advisor: Prof. Max Q.-H. Meng</span><span class="zh">硕士研究生 · 导师：孟庆虎 教授</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Shenzhen Key Lab of Perception &amp; Intelligence, Southern University of Science and Technology · Joint with Wuji Tech</span><span class="zh">深圳市感知与智能重点实验室（南方科技大学） · 联合舞肌科技</span></span>
+          </div>
+          <ul class="en"><li>Investigating data-driven approaches to dexterous in-hand manipulation, combining imitation learning from human demonstrations with reinforcement learning fine-tuning</li></ul>
+          <ul class="zh"><li>研究数据驱动的灵巧手内操作方法，结合人手示教的模仿学习与强化学习微调</li></ul>
+        </div>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><span class="en">Wearable Motion-Assist Device Design</span><span class="zh">人体运动辅助可穿戴设备设计</span></span>
+            <span class="date">2021.08 — 2022.01</span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Undergraduate Research Assistant · Mechanical Design</span><span class="zh">本科科研助理 · 结构设计方向</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Shenzhen Key Lab of Bionic Robotics &amp; Intelligent Systems, Southern University of Science and Technology</span><span class="zh">深圳市仿生机器人与智能系统重点实验室，南方科技大学</span></span>
+          </div>
+          <ul class="en">
+            <li>Designed the "SuperTail" wearable motion-assist device and experimental test platform</li>
+            <li>Published: <a href="https://ieeexplore.ieee.org/document/9665086" target="_blank">IEEE IRC 2021</a></li>
+          </ul>
+          <ul class="zh">
+            <li>设计"超级尾"人体运动辅助可穿戴设备及实验平台</li>
+            <li>发表 IEEE 会议论文一篇 — <a href="https://ieeexplore.ieee.org/document/9665086" target="_blank">IEEE IRC 2021</a></li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><span class="en">Rail Light-Band Image Acquisition System</span><span class="zh">钢轨光带图像采集系统研究</span></span>
+            <span class="date">2022.01 — 2022.08</span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Undergraduate Research Assistant · Mechanism Design</span><span class="zh">本科科研助理 · 机构设计与实验</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Intelligent Sensing Exploration &amp; Engineering Lab, Southern University of Science and Technology</span><span class="zh">智能传感探索与工程实验室，南方科技大学</span></span>
+          </div>
+          <ul class="en"><li>Designed the image-capture mechanism for the "Rail Light-Band Acquisition System"; conducted experimental validation</li></ul>
+          <ul class="zh"><li>负责「钢轨光带图像采集系统」采集机构设计与实验验证</li></ul>
+        </div>
+      </div>
+
+      <!-- Work Experience -->
+      <div class="section">
+        <h3 class="section-title"><span class="en">Work Experience</span><span class="zh">实习经历</span></h3>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><a href="https://wuji.tech/" target="_blank"><span class="en">Wuji Tech</span><span class="zh">舞肌科技</span></a></span>
+            <span class="date"><span class="en">2025.10 — Present</span><span class="zh">2025.10 — 至今</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Algorithm Intern</span><span class="zh">算法实习生</span></span>
+            <span class="date"><span class="en">Shenzhen</span><span class="zh">深圳</span></span>
+          </div>
+          <ul class="en">
+            <li>Developed RL-based training pipelines for dexterous in-hand manipulation; end-to-end sim-to-real experience from environment construction and policy training to real-world deployment</li>
+            <li>Currently investigating data-driven foundation model approaches for learning generalizable manipulation policies toward human-level dexterous skills</li>
+            <li>Designed and built a force-feedback haptic glove end-to-end (mechanism, PCB, STM32 firmware, MuJoCo-based control with real-time IK and collision force feedback), enabling scalable demonstration acquisition for imitation learning</li>
+          </ul>
+          <ul class="zh">
+            <li>搭建面向灵巧手内操作的强化学习训练流水线；具备从仿真环境构建、策略训练到实物部署的完整 Sim-to-Real 经验</li>
+            <li>当前方向：研究数据驱动的基础模型方法，学习可泛化的灵巧操作策略，目标实现类人级手部技能</li>
+            <li>全栈设计并实现力反馈触觉手套系统（机构、电路、STM32 固件、基于 MuJoCo 的实时逆运动学与碰撞力反馈控制），支持模仿学习的规模化示教数据采集</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><a href="https://strutt.inc/" target="_blank"><span class="en">Strutt Inc.</span><span class="zh">深圳市若创科技有限公司</span></a></span>
+            <span class="date">2023.09 — 2024.02</span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Mechanical Engineer Intern</span><span class="zh">机械结构工程师（实习）</span></span>
+            <span class="date"><span class="en">Shenzhen</span><span class="zh">深圳</span></span>
+          </div>
+          <ul class="en">
+            <li>Joined during the product-definition phase of the <strong>ev¹</strong> smart mobility vehicle; worked in a high-ambiguity, fast-iteration startup environment</li>
+            <li>Independently scoped and delivered pre-research on chassis braking and suspension — from problem definition and concept generation to mechanism design and FEA validation</li>
+            <li>Collaborated cross-functionally with a distributed team (robotics, automotive, industrial design) across Singapore and Shenzhen</li>
+          </ul>
+          <ul class="zh">
+            <li>在产品定义阶段加入，参与 <strong>ev¹</strong> 智能出行载具从零到一的研发；适应高不确定性与快速迭代的创业节奏</li>
+            <li>独立完成底盘制动与悬架系统预研——从问题定义、概念生成到机构设计与有限元验证</li>
+            <li>与新加坡-深圳跨地域团队（机器人、汽车工程、工业设计）紧密协作</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Entrepreneurship -->
+      <div class="section">
+        <h3 class="section-title"><span class="en">Entrepreneurship</span><span class="zh">创业经历</span></h3>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><a href="https://www.halfmind.tech/" target="_blank"><span class="en">Halfmind Technology</span><span class="zh">哈夫迈德科技（东莞）</span></a></span>
+            <span class="date"><span class="en">2024 — Present</span><span class="zh">2024 — 至今</span></span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Co-Founder</span><span class="zh">联合创始人</span></span>
+            <span class="date"><span class="en">Dongguan</span><span class="zh">东莞</span></span>
+          </div>
+          <ul class="en">
+            <li>Co-founded a consumer electronics company; defined and shipped Halfmind Reminder — a MagSafe-mountable E-ink task display that surfaces to-dos and focus timers into your physical space, with on-device voice input and multi-device sync</li>
+            <li>Led end-to-end mechanical engineering and manufacturing: industrial design, structural engineering, injection-mold tooling (T0–T2), BOM cost optimization, and full DFM/NPI process (EVT → PVT → MP)</li>
+            <li>Managed the complete production supply chain — supplier qualification, fixture development, and production line commissioning — delivering a globally shipped product with one-year warranty</li>
+            <li>Drove go-to-market strategy targeting the ADHD and neurodiverse community; launched on e-commerce site with companion app (iOS &amp; Android) integrating Apple Reminders and Todoist</li>
+          </ul>
+          <ul class="zh">
+            <li>联合创立消费电子公司；定义并交付 Halfmind Reminder — 可磁吸部署的 E-ink 任务显示设备，将待办与专注计时带入物理空间，支持语音录入与多设备同步</li>
+            <li>主导整机机械工程与量产全链路：工业设计、结构设计、注塑模具开模与试模（T0–T2）、BOM 降本，推动 DFM/NPI 全流程（EVT → PVT → MP）</li>
+            <li>管理完整生产供应链——供应商准入、治具开发与产线调试——实现全球发货与一年质保</li>
+            <li>负责产品上市策略，面向 ADHD 及神经多样性用户群体；上线独立站，配套 App（iOS &amp; Android）集成 Apple Reminders、Todoist</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Competition -->
+      <div class="section">
+        <h3 class="section-title"><span class="en">Competition</span><span class="zh">竞赛经历</span></h3>
+        <div class="entry">
+          <div class="entry-row">
+            <span class="entry-title"><span class="en">RoboMaster — ARTINX, Southern University of Science and Technology</span><span class="zh">RoboMaster 机甲大师赛 — 南方科技大学 ARTINX 战队</span></span>
+            <span class="date">2020.09 — 2023.08</span>
+          </div>
+          <div class="entry-row">
+            <span class="entry-sub"><span class="en">Member → Vice Captain → Team Captain · Mechanical Lead · Project Manager</span><span class="zh">队员 → 副队长 → 队长 · 机械组负责人 · 项目管理负责人</span></span>
+          </div>
+          <ul class="en">
+            <li>Led a 50-person multidisciplinary team through reconstruction to achieve the university's best-ever result — National 1st Prize, national ranking rising from 70+ to 13th</li>
+            <li>Progressed from mechanical member to team captain over three years; managed cross-functional development (mechanical, electrical, software), corporate sponsorship, and full competition logistics</li>
+            <li>Full-stack robotics engineering competency — mechanical design (SolidWorks, sheet metal, CNC), electromechanical integration (motor drive, embedded control), and computer vision algorithm deployment</li>
+          </ul>
+          <ul class="zh">
+            <li>带领 50 人跨学科战队完成重建，创校史最佳战绩——全国一等奖，全国排名从 70+ 跃升至第 13 名</li>
+            <li>三年间从机械组队员成长为队长；统筹机械-电控-视觉跨组协作，获取企业赞助，管理全赛季研发与赛事后勤</li>
+            <li>具备全栈机器人工程能力——机械设计（SolidWorks、钣金、CNC 加工）、机电系统集成（电机驱动、嵌入式控制）及视觉算法部署</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function setLang(lang) {
+  lang = lang === 'zh' ? 'zh' : 'en';
+  document.documentElement.lang = lang;
+  document.getElementById('home-link').href = 'index.html?lang=' + lang;
+  document.querySelectorAll('.lang-switch button').forEach(btn => {
+    const active = btn.textContent.trim() === (lang === 'zh' ? '中文' : 'EN');
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+  try { localStorage.setItem('homepage-language', lang); } catch { /* Storage is optional. */ }
+}
+let initialLang = new URLSearchParams(location.search).get('lang');
+if (initialLang !== 'en' && initialLang !== 'zh') {
+  try { initialLang = localStorage.getItem('homepage-language'); } catch { initialLang = 'en'; }
+}
+setLang(initialLang);
+</script>
+
+</body>
+</html>
