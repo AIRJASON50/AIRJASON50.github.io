@@ -73,6 +73,7 @@ a.section-note { color: var(--link); }
 .publication-text { border-top: 1px solid var(--line); padding-top: 24px; }
 .project { display: grid; grid-template-columns: 35px minmax(0, 1fr); gap: 17px; padding: 22px 0; border-top: 1px solid var(--line); }
 .project-with-image { grid-template-columns: 35px minmax(0, 1fr) 180px; }
+.project-with-demo { grid-template-columns: 35px minmax(0, 1fr) 300px; }
 .project-image { display: block; margin-top: 4px; }
 .project-image img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; }
 .project-index { color: #8a96a2; font-size: 12px; font-variant-numeric: tabular-nums; padding-top: 3px; }
@@ -133,6 +134,7 @@ a.section-note { color: var(--link); }
   .publication h3 { font-size: 15px; }
   .project { grid-template-columns: 23px minmax(0, 1fr); gap: 10px; }
   .project-image { grid-column: 2; max-width: 180px; margin-top: 0; }
+  .project-demo { max-width: 100%; }
   .project p { font-size: 13px; }
   .earlier-work { margin-left: 33px; }
   .experience-row { grid-template-columns: 1fr; gap: 3px; }

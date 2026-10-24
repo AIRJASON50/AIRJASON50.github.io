@@ -13,6 +13,7 @@ This is a buildless static website using HTML(超文本标记语言), CSS(层叠
 - portrait-clean.png: current homepage portrait, based on the user's second, more tightly framed photo supplied on 2026-10-24. The built-in image editing tool removed the intern badge, clasp, and blue lanyard at the user's request.
 - super-tail.gif: unchanged Figure 1 from the Powered Super Tail paper; shows the worn system and its kinematic scheme. Exported from the user's authenticated IEEE page on 2026-10-24. Source: https://ieeexplore.ieee.org/mediastore/IEEE/content/media/9664973/9664984/9665086/xiang1-p6-xiang-large.gif.
 - halfmind-reminder.webp: original white-background product image from the user's company website, exported on 2026-10-24. Source: https://www.halfmind.tech/cdn/shop/files/258.jpg?v=1755949852&width=360. The publisher returns WebP despite the source URL's .jpg extension; the local filename follows the actual format.
+- haptic-glove.gif: full-length looping glove demonstration from the user's /home/l/Downloads/2finger.mp4, added on 2026-10-24. The original video is retained outside the repository.
 - photo.jpg: pre-existing image; retained and not used on the new homepage.
 - preview-modern.html and preview-twocol.html: pre-existing alternative CV layouts; keep affiliation and research content consistent with cv.html while retaining their layouts.
 ## Editing
@@ -30,6 +31,11 @@ Keep assets local and links relative to the HTML document for GitHub Pages porta
 Powered Super Tail was published at IEEE M2VIP 2021, as verified on its IEEE document page and https://www.harlab.site/737.html. Use M2VIP in the homepage and all CV versions; the original IRC label was inaccurate.
 The user requested a Powered Super Tail preview figure and provided authenticated publisher access on 2026-10-24. The homepage uses the original Figure 1 locally; keep its aspect ratio and link it to the paper. Do not substitute an image from a different paper or robot.
 The Halfmind project includes a product thumbnail linked to https://www.halfmind.tech/products/halfmind-sticker. Keep the original image intact; the desktop layout places it beside the description and the mobile layout places it below the description.
+The glove GIF preserves the full 23.4-second simulation/physical comparison. A full-video crop scan found a constant content rectangle of 1692x756 at x=228, y=0; only the left and bottom black borders are removed. The output uses 480x214 pixels, 10 fps, a 128-color adaptive palette with ordered dithering, and infinite looping. This keeps the full demonstration at approximately 6.25 MB. Desktop display width is 300px; mobile display fits the available text column. Clicking opens the local GIF at full size.
+The conversion uses FFmpeg 9.0.1 through pixi's temporary command environment; the crop scan and encoder logs are stored under .git during local verification. Recreate the asset with:
+```bash
+pixi exec --spec ffmpeg ffmpeg -i /home/l/Downloads/2finger.mp4 -filter_complex '[0:v]crop=1692:756:228:0,fps=10,scale=480:-2:flags=lanczos,split[frames][palette_input];[palette_input]palettegen=max_colors=128:stats_mode=diff[palette];[frames][palette]paletteuse=dither=bayer:bayer_scale=4:diff_mode=rectangle[out]' -map '[out]' -an -loop 0 /home/l/ws/RL/AIRJASON50.github.io/haptic-glove.gif
+```
 ## Local Preview and Validation
 Use node /home/l/ws/RL/AIRJASON50.github.io/serve.mjs to start the static HTTP(超文本传输协议) server at http://127.0.0.1:4173. An optional port is the first argument. The command works from any directory. No build step is needed. The site also works as local files.
 Check desktop and mobile widths, both language buttons, section navigation, the CV link, the CV home link, and print styles. Ensure local images load and there is no horizontal overflow at 320px.
