@@ -76,7 +76,8 @@ a.section-note { color: var(--link); }
 .project-with-demo { grid-template-columns: 35px minmax(0, 1fr) 300px; }
 .project-image { display: block; margin-top: 4px; }
 .project-image img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; }
-.project-photo img { aspect-ratio: 1; object-fit: cover; object-position: 45% 50%; }
+.project-photo { aspect-ratio: 1; overflow: hidden; align-self: start; border: 1px solid var(--line); border-radius: 3px; }
+.project-photo img { height: 100%; object-fit: cover; object-position: 50% 100%; border: 0; border-radius: 0; transform: scale(1.6); transform-origin: 50% 100%; }
 .project-index { color: #8a96a2; font-size: 12px; font-variant-numeric: tabular-nums; padding-top: 3px; }
 .project h3 a { color: var(--ink); }
 .project p { font-size: 14px; margin-bottom: 0; }
