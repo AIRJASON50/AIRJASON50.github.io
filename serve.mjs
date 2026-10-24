@@ -14,6 +14,7 @@ const contentTypes = {
   '.js': 'text/javascript; charset=utf-8',
   '.jpg': 'image/jpeg',
   '.gif': 'image/gif',
+  '.webp': 'image/webp',
 };
 
 createServer(async (request, response) => {
