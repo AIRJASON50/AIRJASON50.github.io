@@ -8,7 +8,7 @@ This is a buildless static website using HTML(超文本标记语言), CSS(层叠
 - home.js: homepage language switching and language-preserving CV(履历) links. English is the default; preference is stored locally when browser storage is available.
 - serve.mjs: dependency-free local preview server, anchored to its own directory and bound to loopback only.
 - cv.html: full bilingual CV derived from the original index.html, with home navigation and print controls. On 2026-10-24 the user requested research-focused content updates, including the MARS Lab role and removal of the Wuji internship identity.
-- toporetarget.jpg: preview image from the confirmed author's public project repository, https://raw.githubusercontent.com/Tsinghua-MARS-Lab/toporetarget-web/main/static/videos/posters/hero.jpg.
+- toporetarget.jpg: current paper thumbnail supplied by the user on 2026-10-24, showing a collage of dexterous manipulation demonstrations with the TopoRetarget title. Preserve the complete 960x540 composition.
 - portrait.jpg: first user-supplied portrait, retained as an original; no longer used in the homepage.
 - portrait-clean.png: current homepage portrait, based on the user's second, more tightly framed photo supplied on 2026-10-24. The built-in image editing tool removed the intern badge, clasp, and blue lanyard at the user's request.
 - super-tail.gif: unchanged Figure 1 from the Powered Super Tail paper; shows the worn system and its kinematic scheme. Exported from the user's authenticated IEEE page on 2026-10-24. Source: https://ieeexplore.ieee.org/mediastore/IEEE/content/media/9664973/9664984/9665086/xiang1-p6-xiang-large.gif.
