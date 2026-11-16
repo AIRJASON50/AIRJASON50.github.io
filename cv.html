@@ -66,11 +66,11 @@
       @bottom-center { content: counter(page); font: 9pt "CV Serif", Georgia, serif; color: #111; }
     }
     @media print {
-      body { font-size: 10.5pt; line-height: 1.33; }
+      body { font-size: 10pt; line-height: 1.27; }
       .cv-tools { display: none; }
       .resume { width: auto; max-width: none; margin: 0; padding: 0; }
       h1 { font-size: 27pt; }
-      h2 { font-size: 14pt; margin-top: 15pt; margin-bottom: 7pt; }
+      h2 { font-size: 14pt; margin-top: 11pt; margin-bottom: 5pt; }
       .contact { margin-bottom: 18pt; }
       .entry, .contact { grid-template-columns: 94pt minmax(0, 1fr); column-gap: 12pt; }
       .entry { margin-bottom: 7.5pt; }
@@ -101,6 +101,7 @@
     <button type="button" onclick="setLang('en')" aria-pressed="true">EN</button>
     <button type="button" onclick="setLang('zh')" aria-pressed="false">中文</button>
   </div>
+  <span><a class="en" href="Jielin_Wu_CV_en.pdf" download>Download PDF</a><a class="zh" href="Jielin_Wu_CV_zh.pdf" download>下载 PDF</a></span>
   <button type="button" onclick="window.print()"><span class="en">Print / Save PDF</span><span class="zh">打印 / 保存 PDF</span></button>
 </nav>
 <main class="resume">
@@ -126,12 +127,25 @@
 </div></div>
 </section>
 <section class="section" id="appointments">
-<h2><span class="en">Academic Appointment</span><span class="zh">学术任职</span></h2>
+<h2><span class="en">Research and Industry Appointments</span><span class="zh">科研与实习经历</span></h2>
 <div class="entry "><div class="date"><span class="en">2026.05 — Present</span><span class="zh">2026.05 — 至今</span></div><div class="entry-body"><div class="entry-title"><a href="https://group.iiis.tsinghua.edu.cn/~marslab/"><span class="en">MARS Lab, Tsinghua University</span><span class="zh">清华大学 MARS Lab</span></a></div>
 <div class="entry-sub"><span class="en">Research Assistant · Advisor: <a href="https://hangzhaomit.github.io/">Prof. Hang Zhao</a></span><span class="zh">研究助理 · 指导老师：<a href="https://hangzhaomit.github.io/">赵行老师</a></span></div>
 <div class="entry-sub"><span class="en">Institute for Interdisciplinary Information Sciences (IIIS)</span><span class="zh">清华大学交叉信息研究院</span></div>
-<ul class="en"><li>Reinforcement learning for dexterous manipulation</li></ul>
-<ul class="zh"><li>基于强化学习的灵巧操作研究</li></ul>
+<div class="entry-title">DexMimicAnything (DMA)</div>
+<ul class="en">
+  <li>Developing a policy that tracks human hand–object interactions across different motions and objects for dexterous manipulation.</li>
+  <li>Leading algorithm development, data collection, and end-to-end training, with a target of training on the order of 100 hours of data.</li>
+</ul>
+<ul class="zh">
+  <li>基于人手与物体的交互数据，开发能跨动作、跨物体跟踪示范轨迹的灵巧操作策略。</li>
+  <li>牵头算法开发、数据采集与端到端训练，目标是将训练数据扩展至百小时量级。</li>
+</ul>
+</div></div>
+<div class="entry"><div class="date"><span class="en">2025.10 — Present</span><span class="zh">2025.10 — 至今</span></div>
+<div class="entry-body"><div class="entry-title">Wuji Tech</div>
+<div class="entry-sub"><span class="en">Reinforcement Learning Algorithm Intern</span><span class="zh">强化学习算法实习生</span></div>
+<ul class="en"><li>Developing reinforcement learning algorithms for dexterous manipulation. Core contributor to <a href="https://github.com/wuji-technology/wuji-mjlab">Wuji-MJLab</a>, an open-source reinforcement learning framework.</li></ul>
+<ul class="zh"><li>开发面向灵巧操作的强化学习算法，担任开源强化学习框架 <a href="https://github.com/wuji-technology/wuji-mjlab">Wuji-MJLab</a> 的核心贡献者。</li></ul>
 </div></div>
 </section>
 <section class="section" id="interests">
